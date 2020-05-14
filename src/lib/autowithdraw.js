@@ -1,6 +1,6 @@
 'use strict'
 // const debug = require('debug')('tipbot:autowithdraw')
-const autoWithdrawTxt = require('../text/txt_dash.js').autoWithdrawTxt
+const autoWithdrawTxt = require('../text/txt_vrc.js').autoWithdrawTxt
 const mongoose = require('mongoose')
 const AutowithdrawModel = mongoose.model('Autowithdraw')
 const Coin = require('./coin.js')
@@ -27,7 +27,7 @@ function ShowSetup(user) {
           line += '\n\n'
           // amount
           line += autoWithdrawTxt.setup_1 +
-            (options.amount ? options.amount + ' dash'
+            (options.amount ? options.amount + ' VRC'
               : autoWithdrawTxt.notSet)
           // address
           line += '\n' + autoWithdrawTxt.setup_2 +

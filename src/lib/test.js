@@ -2,7 +2,7 @@
 let mongoose = require('mongoose')
 let debug = require('debug')('tipbot:test')
 
-let texts = require('../text/txt_dash.js').tipbotTxt
+let texts = require('../text/txt_vrc.js').tipbotTxt
 let _ = require('lodash')
 
 const DB = 'mongodb://localhost/tipdb-dev'

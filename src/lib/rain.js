@@ -1,7 +1,7 @@
 'use strict'
 
 let debug = require('debug')('tipbot:rain')
-let helpTexts = require('../text/txt_dash.js').tipbotTxt
+let helpTexts = require('../text/txt_vrc.js').tipbotTxt
 let Coin = require('./coin')
 let mongoose = require('mongoose')
 let Tipper = mongoose.model('Tipper')
@@ -36,7 +36,7 @@ module.exports = class Rain {
         this.GetRainBalance(wallet)
           .then(rainBalance => {
             if (rainBalance !== undefined && rainBalance > 2e-8) {
-              replyTxt = helpTexts.RainAvailibleAmount + rainBalance + ' dash'
+              replyTxt = helpTexts.RainAvailibleAmount + rainBalance + ' VRC'
             } else {
               replyTxt = helpTexts.RainEmpty
             }
@@ -52,7 +52,7 @@ module.exports = class Rain {
 
           .then(threshold => {
             replyTxt += '\n' + helpTexts.RainThreshold1 +
-              Coin.toLarge(threshold) + ' Dash \n' +
+              Coin.toLarge(threshold) + ' VRC \n' +
               helpTexts.RainThreshold2
             // show amount of eligible users
             return this.GetAmountOfEligibleRainUsers()
@@ -291,7 +291,7 @@ function rainNow(rainBalance, rainSize, rainUser, wallet) {
 function cast1raindrop(oneUser, rainSize, rainUser, wallet) {
   return new Promise(
     (resolve, reject) => {
-      debug('Cast a rainray of ' + Coin.toLarge(rainSize) + ' dash on ' + oneUser.name + ' (' + oneUser.id + ')')
+      debug('Cast a rainray of ' + Coin.toLarge(rainSize) + ' VRC on ' + oneUser.name + ' (' + oneUser.id + ')')
       wallet.Move(oneUser, rainSize, rainUser)
         .then(() => {
           // mark this tipper records as recieved a rainray, don't delete them so we have a history

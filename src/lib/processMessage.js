@@ -4,7 +4,7 @@ const debug = require('debug')('tipbot:onMessage')
 const base58check = require('base58check')
 const async = require('async')
 
-const tipbotTxt = require('../text/txt_dash.js').tipbotTxt
+const tipbotTxt = require('../text/txt_vrc.js').tipbotTxt
 const Coin = require('./coin.js')
 
 let autowithdraw  // only requuired if ENABLE_AUTOWITHDRAW_FEATURE
@@ -229,7 +229,7 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
       //  set provided currency
       amount[2] = message.match(tipbot.CURRENCY_REGEX)[0]
     } else {
-      //not provided, set dash as default currency
+      //not provided, set VRC as default currency
       amount[2] = tipbot.CYBERCURRENCY
     }
     // debug(amount)
@@ -268,7 +268,7 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
       tipbot.slack.say(reply)
       return
     }
-    // convert amount if currency isn't Dash
+    // convert amount if currency isn't Vericoin
     tipbot.normalizeValue(amount[1], amount[2], user)
       .then(converted => {
         // ask for confirmation (needed if doing a conversion: withdraw x euro)
@@ -332,7 +332,7 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
         //  set provided currency
         amount[2] = message.match(tipbot.CURRENCY_REGEX)[0]
       } else {
-        //not provided, set dash as default currency
+        //not provided, set VRC as default currency
         amount[2] = tipbot.CYBERCURRENCY
       }
     }
@@ -357,7 +357,7 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
 
     // address and amount is provided => save setup
     if (amount !== null) {
-      // convert amount if currency isn't Dash
+      // convert amount if currency isn't Vericoin
       tipbot.normalizeValue(amount[1], amount[2], user)
         // amount converted, save setup
         .then(converted =>
@@ -431,10 +431,10 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
         //  set provided currency
         currency = message.match(tipbot.CURRENCY_REGEX)[0]
       } else {
-        //not provided, set dash as default currency
+        //not provided, set VRC as default currency
         currency = tipbot.CYBERCURRENCY
       }
-      // convert if currency isn't Dash
+      // convert if currency isn't Vericoin
       tipbot.normalizeValue(amount[1], currency, user)
         .then(converted => {
           // send amount (move between accounts in wallet)
@@ -680,7 +680,7 @@ module.exports = function (message, channel, user, DMchannelID, tipbot) {
               // function (err, threshold) {
               //     if (err) { debug(err); return; }
               //     reply.text += '\n' + tipbotTxt.RainThreshold1 +
-              //         Coin.toLarge(threshold) + ' Dash \n' +
+              //         Coin.toLarge(threshold) + ' Vericoin \n' +
               //         tipbotTxt.RainThreshold2;
               //     tipbot.slack.say(reply);
               // });

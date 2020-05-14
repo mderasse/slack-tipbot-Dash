@@ -4,53 +4,48 @@ const tipbotTxt = {
   // HELPTEXT
   'helpText': [
     //'title':
-    '*DashBot commands* \n',
+    '*VeriTips commands* \n',
 
     //'help_balance':
     '*balance*\t\task the bot for your current balance\n' +
-    '\t\t_@DashBot what is my balance_',
+    '\t\t_@VeriTips what is my balance_',
 
     //'help_send':
     '*send*\t\t\t\ttell the bot to send coins to someone; \n' +
-    '\t\t_@DashBot send 0.1 DASH to @someone_ \n' +
+    '\t\t_@VeriTips send 0.1 DASH to @someone_ \n' +
     '\t\t_aliases: give, tip_ \n' +
     '\t\t\t\tWorks also with major fiat currencies (use *currencies* command to see the list); \n' +
-    '\t\t_@DashBot give 4 USD to @someone_',
+    '\t\t_@VeriTips give 4 USD to @someone_',
 
     // 'help_deposit':
-    '*deposit*\t\task the bot for a deposit address; _@DashBot let me deposit!_',
+    '*deposit*\t\task the bot for a deposit address; _@VeriTips let me deposit!_',
 
     // 'help_withdraw':
     '*withdraw*\ttell the bot to withdraw an amount to an address. \n' +
     '\t\t\t\t\tYou can also use _all_ to withdraw your complete balance (minus the tx fee) \n' +
-    '\t\t_@DashBot withdraw 1 DASH to XqyTXt9LM3AHdrfG8ckdTatDiwk5514a11_',
+    '\t\t_@VeriTips withdraw 1 DASH to XqyTXt9LM3AHdrfG8ckdTatDiwk5514a11_',
 
     // 'help_currencies':
     '*currencies*\task the bot for a list of supported currencies.\n' +
-    '\t\t_@DashBot what currencies do you know?_ ',
+    '\t\t_@VeriTips what currencies do you know?_ ',
 
     // 'help_price':
-    '*price*\t\t\task the bot for the Dash price in a particular currency. Price info from coinmarketcap.\n ' +
-    '\t\t_@DashBot price in USD!_ ',
+    '*price*\t\t\task the bot for the Vericoni price in a particular currency. Price info from coinmarketcap.\n ' +
+    '\t\t_@VeriTips price in USD!_ ',
 
     // 'help_pricelist':
     '*priceticker*\t\tshows all the known prices. Use * priceticker short* for a limited list.\n' +
     '\t\t_aliases: pricelist, prices_ \n' +
 
     // 'help_convert':
-    '*convert*\t\task the bot to convert between a particular currency and Dash (or visa versa).\n' +
-    '\t\t_@DashBot 0.03 DASH to GBP_ \t or \t _@DashBot 15 EURO to DASH_\n',
+    '*convert*\t\task the bot to convert between a particular currency and Vericoin (or visa versa).\n' +
+    '\t\t_@VeriTips 0.03 VRC to GBP_ \t or \t _@VeriTips 15 EURO to VRC_\n',
   ],
 
   'help_rain':
   '*rain*\t\t\tcheck the available raindrops. \n' +
-  '\t\t\tEach user that has tipped another user will receive a _raindrop_ (read: free Dash) from the rain fund when the donation threshold is reached.',
+  '\t\t\tEach user that has tipped another user will receive a _raindrop_ (read: free VRC) from the rain fund when the donation threshold is reached.',
 
-  'help_autowithdraw':
-  '*autowithdraw*\tCheck you autowithdraw setup. \n' +
-  '\t\t\tWhen you tip jar exide the set amount then there is an automatic withdraw to the set address.\n' +
-  '*autowithdraw* amount address\tSet amount and address.\n' +
-  '\t\t_@DashBot autowithdraw 0.5 DASH XqyTXt9LM3AHdrfG8ckdTatDiwk5514a11',
 
   'helpAdminOnly':
   '===== *ADMIN ONLY COMMANDS* =====\n' +
@@ -63,24 +58,17 @@ const tipbotTxt = {
   '\n\n' +
   '*whisper*\tSend a message in a private channel to a user as dashbot.\n' +
   '\t\t\t\t\tUse case :moderator warning.\n' +
-  '\t\t_@Dashbot whisper @narbuy stop being silly man._\n' +
-  '\n\n' +
-  '*rain threshold*\t set the threshold on where the balance of the rain account will be distributed\n' +
-  '\t\t\t\tbetween all the users that tipped. Defaults to 0.5 Dash.\n' +
-  '\t\t_@dashbot rain threshold 1 dash_\n' +
-  '\n' +
-  '*rain eligible*\tSee which users are eligible for a raindrop.\n' +
-  '\n',
+  '\t\t_@VeriTips whisper @mderasse stop being silly man._\n',
 
   // '*rain reset*\t\tReset all tip counts, not needed normally as tip counters are reset when rain is shining.' +
   // '\n',
 
   'tx_fee': 'The transaction fee is set to ',
-  'HelpRandom1': 'Here is an example of one of my commands, type "@dashbot help" for my full list. ',
+  'HelpRandom1': 'Here is an example of one of my commands, type "@VeriTips help" for my full list. ',
   // 'HelpRandom2': 'You can get information about all my other cool tricks via the *help* command. \n Have a nice day !',
 
   // NEW USER
-  'WarningNewUser1': 'A new user joins Dash Nation! A warm welcome to our Slack, ',
+  'WarningNewUser1': 'A new user joins Veri community! A warm welcome to our Slack, ',
   'WarningNewUser2': '.',
 
   // USER LEFT
@@ -129,7 +117,7 @@ const tipbotTxt = {
   'ToMuchCurrencies': ': too many currencies!',
 
   // PRICE
-  'PriceBase': '1 Dash is ',
+  'PriceBase': '1 VRC is ',
   'PriceInfoFrom': ' (price of coinmarketcap)',
   'LocationOfPriceList1': 'Hi, I\'ve posted the price information in the #',
   'LocationOfPriceList2': ' channel to prevent a lot of text in the other channels.',
@@ -138,12 +126,12 @@ const tipbotTxt = {
   'CurrenciesTitle': 'Price info from coinmarketcap \n',
   'SupportedCurrenciesFull': 'Supported currencies: ',
   'SupportedSymbols': 'use these currency abbreviations/symbols in your message: *',
-  'SupportedBase': 'And does it need saying: *DASH* is supported !',
+  'SupportedBase': 'And does it need saying: *VRC* is supported !',
 
   // RAIN
   'RainThreshold1': 'Rain threshold is: ',
   'RainThreshold2': 'Raindrops (aka free dash) will fall when rain balance is more then the set threshold.',
-  'RainThresholdNotSet': 'Dear Dash God, the Rain threshold isn\'t set yet. \n' +
+  'RainThresholdNotSet': 'Dear Vericoin God, the Rain threshold isn\'t set yet. \n' +
   ' You can do that with the *rain threshold _amount_* command.',
   // 'RainTimer': 'Rainshine will be checked every *',
   // 'RainTimerUnit': ' minute(s)*',
@@ -160,7 +148,7 @@ const tipbotTxt = {
   'RainReqDonation2': 'The complete balance of _@',
   'RainReqDonation3': '_ will be redistributed as _raindrops_ (aka free dash).',
   'RainEmpty': ':sun_behind_cloud:no raindrops available to cast. :disappointed:',
-  'RainRecieved': 'As reward of tipping your fellow Dash user(s) you received a raindrop of ',
+  'RainRecieved': 'As reward of tipping your fellow Vericoin user(s) you received a raindrop of ',
   'RainEligibleUsersList': '*These users have tipped* \n',
   'RainErrorResettingCounter': 'Error cannot reset counts. Inform the admin.',
   'RainCountIsReset': 'All tip count records are removed.',
@@ -191,11 +179,11 @@ const userTxt = {
   'Locked': ' , sorry you\re already doing a transaction. \n Wait a moment before starting a new one.',
 
   // GET BALANCES
-  'BaseCurrency': 'Dash',
+  'BaseCurrency': 'VRC',
   'BalanceIs': ' your tip jar contains: ',
   'UnconfirmedBalance1': 'you have an unconfirmed balance (less than ',
   'UnconfirmedBalance2': ' confirmations) of ',
-  'BalanceWarningHigh': 'This tip jar is filling up. Please consider withdrawing some Dash.',
+  'BalanceWarningHigh': 'This tip jar is filling up. Please consider withdrawing some Vericoin.',
   'NoBalance': 'You don\'t have a balance (yet). Use the _deposit_ command to fill your tip jar.',
 
   // WITHDRAW
@@ -207,7 +195,7 @@ const userTxt = {
   // SEND
   'SendPublicMessage1': ':clap: ',
   'SendPublicMessage2': ' tipped ',
-  'SendPrivateMssSendingUser': ' you\'re a great Dash Chat user :thumbsup: \nLets see how much there is left in your tip jar now: \n',
+  'SendPrivateMssSendingUser': ' you\'re a great Vericoin Chat user :thumbsup: \nLets see how much there is left in your tip jar now: \n',
   'SendPrivateMssRecievingUser1': 'Hi there ',
   'SendPrivateMssRecievingUser2': ', you just received ',
   'SendPrivateMssRecievingUser3': ' from ',

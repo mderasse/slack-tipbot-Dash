@@ -12,7 +12,7 @@ const fs = require('fs')
 const User = require('./user.js')
 const Wallet = require('./wallet.js')
 const Coin = require('./coin.js')
-const tipbotTxt = require('../text/txt_dash.js').tipbotTxt
+const tipbotTxt = require('../text/txt_vrc.js').tipbotTxt
 
 
 let TipBot = function (bot, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
@@ -20,7 +20,7 @@ let TipBot = function (bot, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
   if (!bot) { throw new Error('Connection with Slack not availible for tipbot') }
 
   const HighBalanceWarningMark = Coin.toSmall(1.0)
-  self.CYBERCURRENCY = 'DASH'  // upper case for compare
+  self.CYBERCURRENCY = 'VRC'  // upper case for compare
   const BLACKLIST_CURRENCIES = [self.CYBERCURRENCY]
 
   self.initializing = false
@@ -164,9 +164,9 @@ TipBot.prototype.getPriceRates = function () {
         if (err) { return reject(err) }
         if (rates !== undefined) {
           // vanity currencies
-          rates.beer = rates.eur / 1.6
-          rates.pie = rates.eur / 3.0
-          rates.coffee = rates.eur
+          rates.beer = rates.usd / 1.6
+          rates.pie = rates.usd / 3.0
+          rates.coffee = rates.usd
 
           if (rates.eur) {
             rates['€'] = rates.eur
@@ -236,14 +236,14 @@ TipBot.prototype._getPriceRates = function (filename, cb) {
       })
     } else {
       //http://coinmarketcap-nexuist.rhcloud.com/
-      request.get('http://localhost:8080/api/dash/price', function (err, response, body) {
+      request.get('https://api.coingecko.com/api/v3/coins/vericoin/tickers', function (err, response, body) {
         fs.writeFile(filename, body, function (err) {
           if (err) {
             return cb(err)
           }
           try {
             const jsonData = JSON.parse(body)
-            cb(null, jsonData)
+            cb(null, jsonData.tickers[0]['converted_last'])
           } catch (ex) {
             cb('ERROR parsing price data (write): ' + ex)
           }
@@ -478,7 +478,7 @@ TipBot.prototype.normalizeValue = function (inputValue, unit, user, outputCurren
           currency = self.CYBERCURRENCY
           value = parseFloat(inputValue)
         }
-        if (unit.match(/DASH/i)) {
+        if (unit.match(/VRC/i)) {
           currency = self.CYBERCURRENCY
           value = Coin.toSmall(inputValue)
         }
@@ -534,7 +534,7 @@ TipBot.prototype.normalizeValue = function (inputValue, unit, user, outputCurren
                 '(' + showAmount + ' ' + self.CYBERCURRENCY +
                 ' at ' + rate + ' ' + currency + ' / ' + self.CYBERCURRENCY + ')'
 
-              // return converted value in dash, convertion rate, originalCurrency, originalValue, text about the convertion
+              // return converted value in vrc, convertion rate, originalCurrency, originalValue, text about the convertion
               const converted = { newValue, rate, text }
               return resolve(converted)
             }
@@ -643,7 +643,7 @@ TipBot.prototype.sendPrivateRainMessage = function (oneUser, rainSize) {
         .then(DMchannelRecievingUser => {
           const recievingUserMessage = {
             'channel': DMchannelRecievingUser,
-            'text': tipbotTxt.RainRecieved + Coin.toLarge(rainSize) + ' dash'
+            'text': tipbotTxt.RainRecieved + Coin.toLarge(rainSize) + ' VRC'
           }
           // wait the time set via rain Throttle to prevent slack spam protection
           setTimeout(() => {
