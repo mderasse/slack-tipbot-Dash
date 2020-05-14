@@ -12,7 +12,7 @@ const tipbotTxt = {
 
     //'help_send':
     '*send*\t\t\t\ttell the bot to send coins to someone; \n' +
-    '\t\t_@VeriTips send 0.1 DASH to @someone_ \n' +
+    '\t\t_@VeriTips send 0.1 VRC to @someone_ \n' +
     '\t\t_aliases: give, tip_ \n' +
     '\t\t\t\tWorks also with major fiat currencies (use *currencies* command to see the list); \n' +
     '\t\t_@VeriTips give 4 USD to @someone_',
@@ -23,14 +23,14 @@ const tipbotTxt = {
     // 'help_withdraw':
     '*withdraw*\ttell the bot to withdraw an amount to an address. \n' +
     '\t\t\t\t\tYou can also use _all_ to withdraw your complete balance (minus the tx fee) \n' +
-    '\t\t_@VeriTips withdraw 1 DASH to XqyTXt9LM3AHdrfG8ckdTatDiwk5514a11_',
+    '\t\t_@VeriTips withdraw 1 VRC to XXXXX',
 
     // 'help_currencies':
     '*currencies*\task the bot for a list of supported currencies.\n' +
     '\t\t_@VeriTips what currencies do you know?_ ',
 
     // 'help_price':
-    '*price*\t\t\task the bot for the Vericoni price in a particular currency. Price info from coinmarketcap.\n ' +
+    '*price*\t\t\task the bot for the Vericoni price in a particular currency. Price info from coingecko.\n ' +
     '\t\t_@VeriTips price in USD!_ ',
 
     // 'help_pricelist':
@@ -54,9 +54,9 @@ const tipbotTxt = {
   '*balance all*\tshow all the tip jars (must be enabled in code)\n' +
   '\n' +
   '*balance check*\tshow the balance of a specific user (must be enabled in code) \n' +
-  '\t\t_@dashbot balance check @naruby_ \n' +
+  '\t\t_@VeriTips balance check @naruby_ \n' +
   '\n\n' +
-  '*whisper*\tSend a message in a private channel to a user as dashbot.\n' +
+  '*whisper*\tSend a message in a private channel to a user as veritips.\n' +
   '\t\t\t\t\tUse case :moderator warning.\n' +
   '\t\t_@VeriTips whisper @mderasse stop being silly man._\n',
 
@@ -118,24 +118,24 @@ const tipbotTxt = {
 
   // PRICE
   'PriceBase': '1 VRC is ',
-  'PriceInfoFrom': ' (price of coinmarketcap)',
+  'PriceInfoFrom': ' (price of coingecko)',
   'LocationOfPriceList1': 'Hi, I\'ve posted the price information in the #',
   'LocationOfPriceList2': ' channel to prevent a lot of text in the other channels.',
 
   // CURRENCIES
-  'CurrenciesTitle': 'Price info from coinmarketcap \n',
+  'CurrenciesTitle': 'Price info from coingecko \n',
   'SupportedCurrenciesFull': 'Supported currencies: ',
   'SupportedSymbols': 'use these currency abbreviations/symbols in your message: *',
   'SupportedBase': 'And does it need saying: *VRC* is supported !',
 
   // RAIN
   'RainThreshold1': 'Rain threshold is: ',
-  'RainThreshold2': 'Raindrops (aka free dash) will fall when rain balance is more then the set threshold.',
+  'RainThreshold2': 'Raindrops (aka free vrc) will fall when rain balance is more then the set threshold.',
   'RainThresholdNotSet': 'Dear Vericoin God, the Rain threshold isn\'t set yet. \n' +
   ' You can do that with the *rain threshold _amount_* command.',
   // 'RainTimer': 'Rainshine will be checked every *',
   // 'RainTimerUnit': ' minute(s)*',
-  // 'RainTimerNotSet': 'Dear Dash God, the rain timer is not set yet.\n' +
+  // 'RainTimerNotSet': 'Dear Vericoin God, the rain timer is not set yet.\n' +
   // ' You can do that with the *rain timer _minutes_* command.',
   'RainAvailibleAmount': 'Available raindrops: ',
   'RainExplain': 'Each user that has tipped an other user will receive a _raindrop_ from the rain fund.',
@@ -146,7 +146,7 @@ const tipbotTxt = {
   'RainCannotFindRainBalance': 'Could not find the Rain balance for ',
   'RainReqDonation1': 'If you feel generous: tip _@',
   'RainReqDonation2': 'The complete balance of _@',
-  'RainReqDonation3': '_ will be redistributed as _raindrops_ (aka free dash).',
+  'RainReqDonation3': '_ will be redistributed as _raindrops_ (aka free vrc).',
   'RainEmpty': ':sun_behind_cloud:no raindrops available to cast. :disappointed:',
   'RainRecieved': 'As reward of tipping your fellow Vericoin user(s) you received a raindrop of ',
   'RainEligibleUsersList': '*These users have tipped* \n',
