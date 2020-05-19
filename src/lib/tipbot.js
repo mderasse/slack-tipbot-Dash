@@ -61,7 +61,7 @@ let TipBot = function (bot, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
   self.AMOUNT_REGEX = new RegExp('\\s(\\d+\\.\\d{1,8}|\\.\\d{1,8}|\\d+)(?:\\s|$)')
   self.AMOUNT_OR_ALL_REGEX = new RegExp('\\s(\\d+\\.\\d{1,8}|\\.\\d{1,8}|\\d+|all)(?:\\s|$)')
 
-  self.ADDRESS_REGEX = new RegExp('[X|y][a-zA-Z0-9]{25,36}', 'g')
+  self.ADDRESS_REGEX = new RegExp('V[a-zA-Z0-9]{33}', 'g')
 
   self.DUMMY_USERS_REGEX = new RegExp('.*[.]$', 'ig')
 
@@ -479,6 +479,14 @@ TipBot.prototype.normalizeValue = function (inputValue, unit, user, outputCurren
           value = parseFloat(inputValue)
         }
         if (unit.match(/VRC/i)) {
+          currency = self.CYBERCURRENCY
+          value = Coin.toSmall(inputValue)
+        }
+        if (unit.match(/vericoin/i)) {
+          currency = self.CYBERCURRENCY
+          value = Coin.toSmall(inputValue)
+        }
+        if (unit.match(/:vrc:/i)) {
           currency = self.CYBERCURRENCY
           value = Coin.toSmall(inputValue)
         }
