@@ -15,7 +15,7 @@ const Coin = require('./coin.js')
 const tipbotTxt = require('../text/txt_vrc.js').tipbotTxt
 
 
-let TipBot = function (bot, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
+let TipBot = function (bot, RPC_HOST, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
   let self = this
   if (!bot) { throw new Error('Connection with Slack not availible for tipbot') }
 
@@ -48,7 +48,7 @@ let TipBot = function (bot, RPC_USER, RPC_PASSWORD, RPC_PORT, OPTIONS) {
     // RAIN_DEFAULT_THRESHOLD: Coin.toSmall(0.5) // duff
   })
 
-  self.wallet = new Wallet(RPC_PORT, RPC_USER, RPC_PASSWORD, HighBalanceWarningMark, self.OPTIONS.TX_FEE)
+  self.wallet = new Wallet(RPC_HOST, RPC_PORT, RPC_USER, RPC_PASSWORD, HighBalanceWarningMark, self.OPTIONS.TX_FEE)
 
   // will be updated with all available currencies when API call is done
   self.CURRENCIES = ['USD', 'EUR', 'GBP', 'CNY', 'CAD', 'RUB', 'HKD', 'JPY', 'AUD', 'btc']

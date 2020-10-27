@@ -28,18 +28,18 @@ Easily transfer money between team members on your Slack channel.
 
 
 ### Run
-Change the `YOUR_SLACK_TOKEN`, `YOUR_RPC_USER` and `YOUR_RPC_PASSWORD` in the below snippet to the API key.
+Change the `YOUR_SLACK_TOKEN`, `YOUR_RPC_HOST`, `YOUR_RPC_PORT`, `YOUR_RPC_USER` and `YOUR_RPC_PASSWORD` in the below snippet to the API key.
 ```sh
- node bot.js --slack-token="YOUR_SLACK_TOKEN" --rpc-user="YOUR_RPC_USER" --rpc-password="YOUR_RPC_PASSWORD" 
+ node bot.js --slack-token="YOUR_SLACK_TOKEN" --rpc-host="YOUR_RPC_HOST" --rpc-port="YOUR_RPC_PORT" --rpc-user="YOUR_RPC_USER" --rpc-password="YOUR_RPC_PASSWORD" 
 ```
 
 You can also use ENV variable instead of argument:
  - `TIPBOT_SLACK_TOKEN`
+ - `TIPBOT_RPC_HOST`
+ - `TIPBOT_RPC_PORT`
  - `TIPBOT_RPC_USER`
  - `TIPBOT_RPC_PASSWORD`
  
-You can also set the *RPC port* if you need to, it defaults to 9998
-
 If your wallet is locked (and it should !) provided the *passphrase* via the `--wallet-password`argument or the `TIPBOT_WALLET_PASSWORD` enviroment variable.
 
 Optional you can set `DEBUG = "tipbot:*"` to see debug messages.

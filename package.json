@@ -1,7 +1,7 @@
 {
   "name": "slack-tipbot-node",
   "version": "2.1.4",
-  "description": "Dash Slack TipBot - Using local wallet",
+  "description": "Vericoin Slack TipBot - Using local wallet",
   "main": "bot.js",
   "dependencies": {
     "async": "^2.1.0",
@@ -42,7 +42,8 @@
     "slack",
     "slackbot",
     "tipbot",
-    "dash"
+    "vericoin",
+    "verium"
   ],
   "author": "Naruby Riverlione <naruby.riverlione@gmail.com",
   "license": "MIT",

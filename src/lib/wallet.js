@@ -2,7 +2,7 @@
 
 let debug = require('debug')('tipbot:user')
 
-let dashd = require('bitcoin')
+let vericoind = require('bitcoin')
 
 let helpText = require('../text/txt_vrc.js').userTxt
 let Coin = require('./coin')
@@ -13,10 +13,10 @@ const REQUIRED_WITHDRAW_CONFIRMATIONS = 6
 const REQUIRED_TIP_CONFIRMATIONS = 5 // to immediately be able to send a tip after deposit with InstantSend
 
 module.exports = class Wallet {
-  constructor(RPC_PORT, RPC_USER, RPC_PASSWORD, HighBalanceWarningMark, TX_FEE) {
+  constructor(RPC_HOST, RPC_PORT, RPC_USER, RPC_PASSWORD, HighBalanceWarningMark, TX_FEE) {
     // create connection via RPC to wallet
-    this.walletDaemon = new dashd.Client({
-      host: 'localhost',
+    this.walletDaemon = new vericoind.Client({
+      host: RPC_HOST,
       port: RPC_PORT,
       user: RPC_USER,
       pass: RPC_PASSWORD,

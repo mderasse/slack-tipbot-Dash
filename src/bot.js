@@ -11,12 +11,15 @@ let autoIncrement = require('mongoose-auto-increment')
 let argv = parseArgs(process.argv.slice(2))
 
 const SLACK_TOKEN = argv['slack-token'] || process.env.TIPBOT_SLACK_TOKEN
+const RPC_HOST = argv['rpc-host'] || process.env.TIPBOT_RPC_HOST
 const RPC_USER = argv['rpc-user'] || process.env.TIPBOT_RPC_USER
 const RPC_PASSWORD = argv['rpc-password'] || process.env.TIPBOT_RPC_PASSWORD
 const RPC_PORT = argv['rpc-port'] || process.env.TIPBOT_RPC_PORT || 9998
 const WALLET_PASSW = argv['wallet-password'] || process.env.TIPBOT_WALLET_PASSWORD
 
 assert(SLACK_TOKEN, '--slack-token or TIPBOT_SLACK_TOKEN is required')
+assert(RPC_HOST, '--rpc-host or TIPBOT_RPC_HOST is required')
+assert(RPC_PORT, '--rpc-port or TIPBOT_RPC_PORT is required')
 assert(RPC_USER, '--rpc-user or TIPBOT_RPC_USER is required')
 assert(RPC_PASSWORD, '--rpc-password or TIPBOT_RPC_PASSWORD is required')
 
@@ -177,7 +180,7 @@ controller.on('hello', function (bot) {
     debug('tipbot:bot')('******** Setup TipBot ********')
     // load TipBot after mongoose model is loaded
     var TipBot = require('./lib/tipbot')
-    tipbot = new TipBot(bot, RPC_USER, RPC_PASSWORD, RPC_PORT, TIPBOT_OPTIONS)
+    tipbot = new TipBot(bot, RPC_HOST, RPC_USER, RPC_PASSWORD, RPC_PORT, TIPBOT_OPTIONS)
   }
 
   // find channelID of PRICE_CHANNEL_NAME to broadcast price messages
